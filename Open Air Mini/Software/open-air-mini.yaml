@@ -46,7 +46,7 @@ globals:
     type: int
     restore_value: no
     initial_value: "25"
-  # Disconnected Mode Max Fan Speed Threshold    
+  # Disconnected Mode Max Fan Speed Threshold
   - id: disconnected_hum_level_max_speed
     type: int
     restore_value: no
@@ -59,59 +59,57 @@ globals:
 
 # From V1.4.0 The Sensor pins on the Open AIR Mini are swapped. Correct example is below:
 uart:
-#UART For Sensor 2
- - rx_pin: GPIO13
-   tx_pin: GPIO12
-   baud_rate: 9600
-   id: uart_sensor_2
-#UART For Sensor 1
- - rx_pin: GPIO25
-   tx_pin: GPIO26
-   baud_rate: 9600
-   id: uart_sensor_1
+  #UART For Sensor 2
+  - rx_pin: GPIO13
+    tx_pin: GPIO12
+    baud_rate: 9600
+    id: uart_sensor_2
+  #UART For Sensor 1
+  - rx_pin: GPIO25
+    tx_pin: GPIO26
+    baud_rate: 9600
+    id: uart_sensor_1
 
 i2c:
-#I2C For Sensor 2
-- id: i2c_sensor_2
-  sda: GPIO19
-  scl: GPIO18
-  scan: false
-  frequency: 400kHz
-#I2C For Sensor 1
-- id: i2c_sensor_1
-  sda: GPIO16
-  scl: GPIO4
-  scan: false
-  frequency: 400kHz
+  #I2C For Sensor 2
+  - id: i2c_sensor_2
+    sda: GPIO19
+    scl: GPIO18
+    scan: false
+    frequency: 400kHz
+  #I2C For Sensor 1
+  - id: i2c_sensor_1
+    sda: GPIO16
+    scl: GPIO4
+    scan: false
+    frequency: 400kHz
 
 #For version <1.4.0 use: (remove the #)
 #uart:
 #UART For Sensor 2
- #- rx_pin: GPIO13
-   #tx_pin: GPIO12
-   #baud_rate: 9600
-   #id: uart_sensor_2
+#- rx_pin: GPIO13
+#tx_pin: GPIO12
+#baud_rate: 9600
+#id: uart_sensor_2
 #UART For Sensor 1
- #- rx_pin: GPIO25
-   #tx_pin: GPIO26
-   #baud_rate: 9600
-   #id: uart_sensor_1
+#- rx_pin: GPIO25
+#tx_pin: GPIO26
+#baud_rate: 9600
+#id: uart_sensor_1
 
 #i2c:
 #I2C For Sensor 2
 #- id: i2c_sensor_2
-  #sda: GPIO19
-  #scl: GPIO18
-  #scan: false
-  #frequency: 400kHz
+#sda: GPIO19
+#scl: GPIO18
+#scan: false
+#frequency: 400kHz
 #I2C For Sensor 1
 #- id: i2c_sensor_1
-  #sda: GPIO16
-  #scl: GPIO4
-  #scan: false
-  #frequency: 400kHz
-
-  
+#sda: GPIO16
+#scl: GPIO4
+#scan: false
+#frequency: 400kHz
 
 # Status led
 status_led:
@@ -130,17 +128,13 @@ fan:
     output: open_air_mini
     name: "Open AIR Mini"
     id: fan_motor
-    
-sensor: 
-  - platform: pulse_counter
-    pin: GPIO14
-    unit_of_measurement: 'RPM'
-    name: 'AIR Mini RPM'
+
+sensor: !include sensors.yaml
 
 script:
   # Below includes for disconnected mode are mutually exclusive. Only use one at a time!
-  !include disconnected-mode-without-humidity.yaml
-  # !include disconnected-mode-with-humidity.yaml
+  # !include disconnected-mode-without-humidity.yaml
+  !include disconnected-mode-with-humidity.yaml
 
 interval:
   - interval: 30s

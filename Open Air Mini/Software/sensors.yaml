@@ -1,0 +1,22 @@
+# FAN
+- platform: pulse_counter
+  pin: GPIO14
+  unit_of_measurement: "RPM"
+  name: "AIR Mini RPM"
+# combination sensor
+- platform: sht3xd
+  i2c_id: i2c_sensor_1
+  temperature:
+    name: "Temperature Open AIR Mini x"
+    id: air_temperature
+  humidity:
+    name: "Humidity Open AIR Mini x"
+    id: air_humidity
+  address: 0x44
+  update_interval: 60s
+- platform: senseair
+  uart_id: uart_sensor_1
+  co2:
+    name: "CO2 Open AIR Mini x"
+    id: air_co2
+  update_interval: 60s

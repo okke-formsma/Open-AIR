@@ -139,14 +139,13 @@ script:
 interval:
   - interval: 30s
     then:
-      - logger.log: "API Connectivity Check for Disconnected Mode"
+      - logger.log: "Always run disconnected"
       - if:
           condition:
-            not:
-              api.connected:
+            api.connected:
           then:
             - logger.log: "API disconnected"
             - script.execute: disconnected_mode
           else:
             - logger.log: "API connected"
-            - script.stop: disconnected_mode
+            - script.execute: disconnected_mode

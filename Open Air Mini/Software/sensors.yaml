@@ -5,7 +5,7 @@
   name: "AIR Mini RPM"
 # combination sensor
 - platform: sht3xd
-  i2c_id: i2c_sensor_2
+  i2c_id: i2c_sensor_1
   temperature:
     name: "Temperature Open AIR Mini x"
     id: air_temperature
@@ -15,7 +15,7 @@
   address: 0x44
   update_interval: 60s
 - platform: senseair
-  uart_id: uart_sensor_2
+  uart_id: uart_sensor_1
   co2:
     name: "CO2 Open AIR Mini x"
     id: air_co2

@@ -4,19 +4,35 @@
   unit_of_measurement: "RPM"
   name: "AIR Mini RPM"
 # combination sensor
-- platform: sht3xd
-  i2c_id: i2c_sensor_1
-  temperature:
-    name: "Temperature Open AIR Mini x"
-    id: air_temperature
-  humidity:
-    name: "Humidity Open AIR Mini x"
-    id: air_humidity
-  address: 0x44
-  update_interval: 60s
-- platform: senseair
-  uart_id: uart_sensor_1
+# - platform: sht3xd
+#   i2c_id: i2c_sensor_1
+#   temperature:
+#     name: "Temperature Open AIR Mini x"
+#     id: air_temperature
+#   humidity:
+#     name: "Humidity Open AIR Mini x"
+#     id: air_humidity
+#   address: 0x44
+#   update_interval: 60s
+# - platform: senseair
+#   uart_id: uart_sensor_1
+#   co2:
+#     name: "CO2 Open AIR Mini x"
+#     id: air_co2
+#   update_interval: 60s
+- platform: scd4x
+  i2c_id: i2c_sensor_1 #Of sensor 2 (afhankelijk van waar deze op zit)
   co2:
-    name: "CO2 Open AIR Mini x"
-    id: air_co2
-  update_interval: 60s
+    name: "Open AIR Mini Sensor 1 CO2"
+    id: air_Co2
+    accuracy_decimals: 0
+  temperature:
+    name: "Open AIR Mini Sensor 1 Temperature"
+    id: air_temperature
+    accuracy_decimals: 2
+  humidity:
+    name: "Open AIR Mini Sensor 1 Humidity"
+    id: air_humidity
+    accuracy_decimals: 2
+  update_interval: 30s
+  measurement_mode: periodic

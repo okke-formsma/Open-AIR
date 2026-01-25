@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(git stash push:*)",
+      "Bash(git rev-parse:*)",
+      "Bash(correct platform component.\"\n\nReferences: https://esphome.io/changelog/2024.6.0.html\nEOF\n\\)\")",
+      "Bash(git commit:*)",
+      "Bash(git stash:*)",
+      "Bash(git restore:*)",
+      "Bash(gh issue view:*)"
+    ]
+  }
+}

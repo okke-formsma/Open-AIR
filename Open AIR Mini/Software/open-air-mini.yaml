@@ -130,6 +130,7 @@ fan:
     output: open_air_mini
     name: "Open AIR Mini"
     id: fan_motor
+    restore_mode: NO_RESTORE
     
 sensor: 
   - platform: pulse_counter
